@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      gameeee
+    </title>
+  </head>
+  <body>
+    <p>
+      Rock Paper Scissors
+    </p>
+    
+    <p>
+      <button onclick="
+        rno('Rock');
+        ">
+        Rock
+      </button>
+      <button onclick="
+       rno('Paper')
+      ">
+        Paper
+      </button>
+      <button onclick="
+      rno('Scissors')
+      ">
+        Scissors
+      </button>
+
+      <p class="js-score"> </p>
+<!-- This paragraph's class is used in js to change the score however we want and keep
+     the HTML code clean -->
+      
+      <p class="js-winorlose"></p>
+
+      <p class="js-whichhand"></p>
+
+      <button onclick="
+        localStorage.removeItem('trackscore');
+        track = { Win: 0, Lose: 0, Tie: 0 };
+        livescore();
+      ">
+
+        Reset Score
+
+      </button>
+
+
+    </p>
+
+
+
+    <script> 
+      let x=''
+      let compchoice=''
+
+      let track=JSON.parse(localStorage.getItem('trackscore'));
+      if (!track){
+        track={
+          Win:0,
+          Lose:0,
+          Tie:0 
+        };
+      } 
+
+      function livescore(){
+        // This function is used to update the score in the HTML
+        document.querySelector('.js-score')
+        .innerHTML = `Win ${track.Win} Tie ${track.Tie} Lose ${track.Lose}`;
+      }
+      
+      let whathappened= '';
+      
+      function rno(mych){
+        x= Math.random()
+        if (x>=0 && x<1/3){
+          compchoice='Rock';
+        }
+        else if(x>=1/3 && x<2/3){
+          compchoice='Paper';
+        }
+        else{
+          compchoice='Scissors';
+        }
+        if (mych=='Rock' && compchoice=='Paper'){
+          track.Lose=track.Lose +1 ;
+          whathappened = "You Lost";
+        }
+        else if(mych=="Rock" && compchoice=="Rock"){
+          track.Tie=track.Tie +1 ;
+          whathappened = "You Tied";
+        }
+        else if(mych=="Rock" && compchoice=="Scissors"){
+          track.Win=track.Win +1 ;
+          whathappened = "You Won";  
+        }
+        else if (mych=='Paper' && compchoice=="Paper"){
+          track.Tie=track.Tie +1 ;
+          whathappened = "You Tied";
+        }
+        else if(mych=="Paper" && compchoice=="Rock"){
+          track.Win=track.Win +1 ;
+          whathappened = "You Won";
+        }
+        else if(mych=="Paper" && compchoice=="Scissors"){
+          track.Lose=track.Lose +1 ;
+          whathappened = "You Lost";
+        }
+        else if (mych=="Scissors" && compchoice=="Rock"){
+          track.Lose=track.Lose +1 ;
+          whathappened = "You Lost";
+        }
+        else if(mych=="Scissors" && compchoice=="Paper"){
+          track.Win=track.Win +1 ;
+          whathappened = "You Won";
+        }
+        else if(mych=="Scissors" && compchoice=="Scissors"){
+          track.Tie=track.Tie +1 ;
+          whathappened = "You Tied";
+        }
+
+        localStorage.setItem("trackscore",JSON.stringify(track));
+
+        livescore();
+
+        document.querySelector('.js-winorlose')
+          .innerHTML = whathappened;
+
+        document.querySelector('.js-whichhand')
+          .innerHTML = `You picked ${mych}. Computer picked ${compchoice}.`;
+
+      }
+
+    </script>
+  </body>
+</html>

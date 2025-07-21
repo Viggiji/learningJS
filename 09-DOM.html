@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hemlo ma frnd</title>
+  </head>
+  <body>
+    <button>
+      Hello ji;
+    </button>
+    <button class="js-button">
+      secnd
+    </button>
+    <script>
+    //  document.body.innerHTML="HEllo";
+    /*
+      console.log(document.title);
+      document.title="Ganja Ganja";
+      console.log(document.body);
+      console.log(document.body.innerHTML);    //it displays all the code written in the html even the one below it
+      document.body.innerHTML="<button>hemloo</button>";
+    */  
+      console.log(document.querySelector("button"));// It works as document.body but for things other than body
+      console.log(document.querySelector("button").innerHTML);
+      // also all the quereSelector elemnts have there innerHTML which shows what is wriiten within them
+      document.querySelector("button").innerHTML="MY BUTTON"
+
+      console.log(document.querySelector(".js-button"));
+      // With making a class in the upper button now u can target a class of buttons here
+      // to change or modify them
+    </script>
+  </body>
+</html>

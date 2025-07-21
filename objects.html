@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+    <title>
+      nothin much
+    </title></head>
+    <body>
+      <script>
+      /*
+        //     object
+        const product1 = {
+      //property value
+          name: "vig",
+          item: "socks"
+        }
+        console.log( typeof product1);
+        console.log(product1.name);
+        product1.name="Cotton socks";
+        console.log(product1.name);
+        // we can add a new property by just this simple method
+        product1.price=180; 
+        console.log(product1);
+        // we can delete a property by using:-
+        delete product1.price;
+        console.log(product1);
+        
+       const prod2={
+        name: "towel",
+        ["deltime"]: "1 day",
+        rating: {
+          stars: 9,
+          number:99
+        },
+        // We make a function under an object here
+   // in this object the property in which function is defined has become the fucntion
+// function can be accessed by object.propery()
+//Even console is an object and console.log is a function 
+        everything: function give(){
+          console.log("Function inside an object")
+        }
+       }
+       console.log(prod2["name"])
+       //another way to give an element , it is used to giveelements which .notation
+       // cannot such as delivery-time , .notation takes it as delivery  minus time
+       console.log(prod2.rating.stars)
+       prod2.everything()
+       console.log(JSON.stringify(prod2)); // Made a STRING of JSON 
+// JSON helps in sending data over other languages where as JS is not such capable
+// But it has everything in double quotes and does not support function inside an object 
+        const jsonString=JSON.stringify(prod2)      
+        console.log(JSON.parse(jsonString))
+        // converts it back to js 
+
+
+        localStorage.setItem("me","vig");
+        // It stores the valur which never gets deleted or even if we refresh the page
+        console.log(localStorage.getItem("me"))
+    // But it only gets string type value so to use it in js we convert it into json
+    //did it in rcpwith object
+    */
+      console.log("hello".length);
+      console.log("LZLlo".toLowerCase());
+      const obj1={
+        name: "viggi"
+      }
+      const obj2=obj1;
+      // Here obj2 is not copying the value of obj1 into itself rather it is pointing towards the space where it is stored
+      // it makes storing the value of large data bases into other easier as it does not has to copy the whole
+      obj1.name="Bery nnicee";
+      // Here it still changes the name as it changes the value inside the refrence
+      // const dosent let it change the refrence or the pointer to where the value is stored but 
+      // if refrenced or accessed the value which is stored in the memory itslef will change
+      console.log(obj2);
+      // because of that the value of even obj2 will changeas it is refrenceing to the same memory
+      const obj3={
+        name: "Bery nnicee"}
+        console.log(obj1===obj3);// It will show false as it is comparing the refrence values not the memory itself
+      </script>
+    </body>
+  </html>  
+  

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> DOM PROJECTS</title>
+  </head>
+  <body>
+    <p>Youtube Subscribe Button</p>
+    <button 
+      onclick=
+        "subscribe();"
+      class="js-subsbutton">Subscribe</button> 
+<!--  Here dont forget to not leave spaces in the name because it would
+ add a newline to it which will then not be same as writte i IF statement-->
+<!-- Here instead of innerHTMl u can use innerText which does not consider any newline or spaces-->
+  
+    <p>
+      Amazon Shipping Calculator
+    </p>
+    <p>
+      Orders under $40 = +$10 shipping.
+    </p>
+    <p>
+      Orders over $40 = FREE shipping.
+    </p> 
+
+    <input 
+      placeholder="Cost of order"
+      class="js-costholder"
+      onkeydown="
+        pressEnter(event)
+      "                             
+    >
+
+    <button class="js-calcbut" onclick=
+      "calculateShipping()" >
+
+      Calculate
+    </button>
+
+    <p class="js-dispcost"></p>
+
+
+    <input placeholder="Type something"
+    class="js-dynamicinput"
+    oninput="
+      write()
+    ">
+
+    <p class="js-dynamicstring"> </p>
+
+  <script>
+    
+    const sub_but_elem=document.querySelector(".js-subsbutton")
+// Here i created a fucntion which does the work of button and func is directly used in onclick
+    const dispcost=document.querySelector(".js-dispcost");
+
+    const dynamicinput=document.querySelector(".js-dynamicinput");
+    const dynamicstring= document.querySelector(".js-dynamicstring");
+
+    function subscribe(){
+      if (sub_but_elem.innerHTML==='Subscribe'){
+        sub_but_elem.innerHTML='Subscribed'
+      }
+      else{
+        sub_but_elem.innerHTML='Subscribe' 
+      }
+    }
+    
+    let value= 0;
+    //i declared value outside any function so that it can have a global scope
+
+    function calculateShipping(){
+      const textbox=document.querySelector(".js-costholder");
+      value=Number(textbox.value);
+// Here i used Number to convert the string to number so that it can be used in calculations
+      if (value<40){
+        value+=10;
+      }
+      dispcost.innerHTML=`Your order cost is $ ${value}`;
+    }
+    
+    function pressEnter(event){
+      if (event.key=="Enter"){
+        calculateShipping();
+      }
+    }
+    
+    function write(){
+      dynamicstring.innerText=dynamicinput.value;
+    }
+
+    </script>
+  </body>
+</html>

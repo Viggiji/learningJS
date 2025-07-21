@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      gameeee
+    </title>
+  </head>
+  <body>
+    <p>
+      Rock paper Scissors
+    </p>
+    <p>
+      <button onclick="
+        a=randomchoice()
+        let ch1= 'Rock';
+        if (a=='Paper'){
+          alert(`You picked ${ch1}. Computer picked ${a}. You lose `);
+        }
+        else if(a=='Scissors'){
+          alert( `You picked ${ch1}. Computer picked ${a}. You Win `);
+        }
+        else{
+          alert(`You picked ${ch1}. Computer also picked ${a}. Its a tie`);
+        }
+        ">
+        Rock
+      </button>
+      <button onclick="
+        a=randomchoice()
+        let ch2= 'Paper';
+        if (a=='Paper'){
+          alert(`You picked ${ch2}. Computer picked ${a}. ITs a tie `);
+        }
+        else if(a=='Scissors'){
+          alert( `You picked ${ch2}. Computer picked ${a}. You Lose `);
+        }
+        else{
+          alert(`You picked ${ch2}. Computer also picked ${a}. You win`);
+        }
+      ">
+        Paper
+      </button>
+      <button onclick="
+        a=randomchoice()
+        let ch3= 'Scissors';
+        if (a=='Paper'){
+          alert(`You picked ${ch3}. Computer picked ${a}. You win `);
+        }
+        else if(a=='Scissors'){
+          alert( `You picked ${ch3}. Computer picked ${a}. Its a tie `);
+        }
+        else{
+          alert(`You picked ${ch3}. Computer also picked ${a}. You Lose`);
+        }
+      ">
+        Scissors
+      </button>
+    </p>
+    <script> 
+      let x=''
+      function randomchoice(){
+        x= Math.random()
+        if (x>=0 && x<1/3){
+          return 'Rock';
+        }
+        else if(x>=1/3 && x<2/3){
+          return 'Paper';
+        }
+        else{
+          return 'Scissors';
+        }
+      /* Before using a function u 1st have to define the functions variables outside the
+       function normally */
+      }
+    </script>
+  </body>
+</html>

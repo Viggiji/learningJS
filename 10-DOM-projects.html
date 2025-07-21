@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> DOM PROJECTS</title>
+
+    <style>
+      .subscribe-button {
+        border: 0;
+        padding: 10px 15px;
+        margin-bottom: 35px;
+        background-color: black;
+        border-radius: 50px;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .subscribed-button{
+        background-color: rgb(240,240,240);
+        color: black;
+      }
+
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .css-costholder {
+        padding: 10px;
+        font-size: 15px;
+      }
+      .css-calcbut{
+        padding: 12px 15px;
+        font-size: 15px;
+        background-color: rgb(0, 128,0);
+        color: white;
+        border: 0px;
+        
+      }
+
+    </style>
+
+  </head>
+  <body>
+    <p>YouTube Subscribe Button</p>
+    <button 
+      onclick=
+        "subscribe();"
+      class="js-subsbutton subscribe-button">Subscribe</button> 
+  
+    <p>
+      Amazon Shipping Calculator
+    </p>
+    <p>
+      Orders under $40 = +$10 shipping.
+    </p>
+    <p>
+      Orders over $40 = FREE shipping.
+    </p> 
+
+    <input 
+      placeholder="Cost of order"
+      class="js-costholder css-costholder"
+      onkeydown="
+        pressEnter(event)
+      "                             
+    >
+
+    <button class="js-calcbut css-calcbut"
+      onclick=
+        "calculateShipping()" 
+      >
+      Calculate
+    </button>
+
+    <p class="js-dispcost"></p>
+
+
+  <script>
+    
+    const sub_but_elem=document.querySelector(".js-subsbutton")
+    const dispcost=document.querySelector(".js-dispcost");
+
+    function subscribe(){
+      if (sub_but_elem.innerHTML==='Subscribe'){
+        sub_but_elem.innerHTML='Subscribed'
+        sub_but_elem.classList.add('subscribed-button');
+      }
+      else{
+        sub_but_elem.innerHTML='Subscribe'
+        sub_but_elem.classList.remove('subscribed-button');
+      }
+    }
+    
+    let value= 0;
+    
+    function calculateShipping(){
+      const textbox=document.querySelector(".js-costholder");
+      value=Number(textbox.value);
+
+      if (value<40){
+        value+=10;
+      }
+      dispcost.innerHTML=`Your order cost is $ ${value}`;
+    }
+    
+    function pressEnter(event){
+      if (event.key=="Enter"){
+        calculateShipping();
+      }
+    }
+
+    </script>
+  </body>
+</html>
