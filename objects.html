@@ -64,16 +64,16 @@
         name: "viggi"
       }
       const obj2=obj1;
-      // Here obj2 is not copying the value of obj1 into itself rather it is pointing towards the space where it is stored
+      // Here obj2 is not copying the value of obj1 into itself rather it is pointing towards the space where stored
       // it makes storing the value of large data bases into other easier as it does not has to copy the whole
-      obj1.name="Bery nnicee";
+      obj1.name="Bery nnooicee";
       // Here it still changes the name as it changes the value inside the refrence
       // const dosent let it change the refrence or the pointer to where the value is stored but 
       // if refrenced or accessed the value which is stored in the memory itslef will change
       console.log(obj2);
       // because of that the value of even obj2 will changeas it is refrenceing to the same memory
       const obj3={
-        name: "Bery nnicee"}
+        name: "Bery nnooicee"}
         console.log(obj1===obj3);// It will show false as it is comparing the refrence values not the memory itself
       </script>
     </body>
