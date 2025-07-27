@@ -4,36 +4,69 @@
     <title>
       gameeee
     </title>
+    <style>
+      body {
+        background-color: rgb(25, 25, 25);
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+      .css-title{
+        font-weight: 700;
+        font-size: 30px;
+      }
+      .move-img{
+        width: 50px;
+        height: 50px;
+      }
+      .img-button{
+        background-color: transparent;
+        border: 2.667px solid white;
+        border-radius: 60px;
+        height: 120px;
+        width: 120px;
+        margin-right: 10px;
+      }
+      .css-winorlose{
+        margin-top: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
+    </style>
   </head>
   <body>
-    <p>
+    <p class="css-title">
       Rock Paper Scissors
     </p>
-    
     <p>
-      <button onclick="
+
+      <button class="img-button" onclick="
         rno('Rock');
-        ">
-        Rock
+      ">
+        <img class="move-img" src="emojis/rock-emoji.png" >
       </button>
-      <button onclick="
+
+      <button class="img-button" onclick="
        rno('Paper')
       ">
-        Paper
+        <img class="move-img" src="emojis/paper-emoji.png" >
       </button>
-      <button onclick="
+
+      <button class="img-button" onclick="
       rno('Scissors')
       ">
-        Scissors
+        <img class="move-img" src="emojis/scissors-emoji.png" >
       </button>
+
+
+      <p class="js-winorlose css-winorlose"></p>
+
+      <p class="js-whichhand"></p>
 
       <p class="js-score"> </p>
 <!-- This paragraph's class is used in js to change the score however we want and keep
      the HTML code clean -->
-      
-      <p class="js-winorlose"></p>
 
-      <p class="js-whichhand"></p>
 
       <button onclick="
         localStorage.removeItem('trackscore');
@@ -45,9 +78,7 @@
 
       </button>
 
-
     </p>
-
 
 
     <script> 
@@ -121,13 +152,13 @@
 
         localStorage.setItem("trackscore",JSON.stringify(track));
 
-        livescore();
-
         document.querySelector('.js-winorlose')
           .innerHTML = whathappened;
 
         document.querySelector('.js-whichhand')
           .innerHTML = `You picked ${mych}. Computer picked ${compchoice}.`;
+
+        livescore();
 
       }
 
